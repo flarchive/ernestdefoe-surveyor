@@ -1,0 +1,94 @@
+{
+    "name": "ernestdefoe/surveyor",
+    "description": "An SEO workspace for Flarum that works alongside FoF SEO, FoF Sitemap and Detour: a polite site audit with scores and history, broken-link recovery through Detour, Google Search Console with opportunities, PageSpeed and Core Web Vitals, a regression guard, internal-link analysis, IndexNow, and optional AI meta descriptions.",
+    "keywords": [
+        "flarum",
+        "seo",
+        "audit",
+        "site audit",
+        "broken links",
+        "indexnow",
+        "sitemap",
+        "robots",
+        "crawler",
+        "search console",
+        "pagespeed",
+        "core web vitals",
+        "internal links"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ernest Defoe",
+            "email": "ernestdefoe@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ernestdefoe/surveyor/issues",
+        "source": "https://github.com/ernestdefoe/surveyor"
+    },
+    "funding": [
+        {
+            "type": "buymeacoffee",
+            "url": "https://buymeacoffee.com/ernestdefoe"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0",
+        "fof/seo": "^4.0.0-beta.16",
+        "fof/sitemap": "^3.0",
+        "ernestdefoe/detour": "^1.0",
+        "ext-openssl": "*",
+        "ext-json": "*"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Surveyor",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-binoculars",
+                "backgroundColor": "#0f766e",
+                "color": "#ffffff"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "backendTesting": true,
+                "js": true
+            }
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Ernestdefoe\\Surveyor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ernestdefoe\\Surveyor\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "flarum/phpstan": "^2.0",
+        "flarum/testing": "^2.0",
+        "flarum/tags": "^2.0"
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run static analysis"
+    }
+}
